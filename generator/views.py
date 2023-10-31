@@ -27,7 +27,7 @@ def generate(request):
         for i in range(length):
             the_password += random.choice(CHARACTERS)
 
-        generated_password = GeneratedPassword(password)
+        generated_password = GeneratedPassword(the_password)
         generated_password.save()
 
         return render(
@@ -41,9 +41,9 @@ def generate(request):
 
 def last_generated(request):
     # print('Im here')
-    print(GeneratedPassword.objects.all().values())
+    ls = GeneratedPassword.objects.all().order_by("-id")
     return render(
         request,
         'generator/last_generated.html',
-        {"passwords": GeneratedPassword.objects.all().values()[:10]}
+        {"passwords": ls.values()[:10]}
     )
