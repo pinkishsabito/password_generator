@@ -16,7 +16,7 @@ python3 manage.py makemigrations
 python3 manage.py migrate
 ```
 
-* only 3 APIs
+* only 4 APIs
   * "v1/password"
   * "v1/password/about"
   * "v1/password/generate"
